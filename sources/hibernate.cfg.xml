@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- 数据库连接 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate_hello</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">love</property>
+
+        <!-- SQL 方言 数据库的引擎  -->
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+        <!-- 执行打印SQL  -->
+        <property name="show_sql">true</property>
+
+        <!-- 如果有就使用，没有就创建 -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- 配置映射文件  -->
+        <mapping resource="com/zrzy/entity/User.hbm.xml"/>
+
+    </session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+        <!DOCTYPE hibernate-mapping PUBLIC
+                "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        <!-- package="com.hibernate.entity" -->
+<hibernate-mapping package="com.zrzy.entity" > <!-- mapping 是hibernate映射文件  -->
+<!--  name=类名   table=表名   -->
+<class name="User" table="user"  >
+    <!--id 主键  name 属性  column 列名   type 类名  -->
+    <id name="id" column="u_id"  >
+        <!--  主键生成策略  increment hibernate框架的生成策略
+         identity  mysql 底层数据库生成表识符
+         native 是mysql数据库  -->
+        <generator class="native" />
+    </id>
+
+    <property name="username" type="java.lang.String" column="username"   />
+    <property name="password" type="java.lang.String" column="password"   />
+
+
+
+</class>
+<!-- 注意query标签的位置 -->
+<query name="queryUser">
+    <![CDATA[from User u where u.username like :username]]>
+</query>
+</hibernate-mapping>
